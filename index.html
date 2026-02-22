@@ -17,40 +17,85 @@ section {padding:100px 10%;}
 background:linear-gradient(135deg,#0f172a,#1e293b);
 color:#fff;text-align:center;padding:140px 10%;
 }
-.hero h1 {font-size:48px;font-weight:800;margin-bottom:20px;}
+.hero h1 {font-size:48px;font-weight:800;margin-bottom:20px;transition:.3s;}
+.hero h1:hover {transform:scale(1.02);}
 .hero p {font-size:20px;opacity:.9;margin-bottom:40px;max-width:800px;margin-left:auto;margin-right:auto;}
+
 .btn {
-padding:16px 35px;border-radius:10px;font-weight:600;text-decoration:none;
-display:inline-block;margin:10px;transition:.3s;
+padding:16px 35px;border-radius:12px;font-weight:600;text-decoration:none;
+display:inline-block;margin:10px;transition:all .3s ease;
+position:relative;overflow:hidden;
 }
-.btn-primary {background:#25D366;color:#fff;}
-.btn-primary:hover {background:#1ebe5d;}
-.btn-secondary {border:2px solid #fff;color:#fff;}
-.btn-secondary:hover {background:#fff;color:#0f172a;}
+
+.btn-primary {
+background:#25D366;color:#fff;
+box-shadow:0 8px 20px rgba(37,211,102,0.4);
+}
+
+.btn-primary:hover {
+transform:translateY(-4px);
+box-shadow:0 15px 35px rgba(37,211,102,0.6);
+}
+
+.btn-secondary {
+border:2px solid #fff;color:#fff;
+}
+
+.btn-secondary:hover {
+background:#fff;color:#0f172a;
+transform:translateY(-4px);
+box-shadow:0 10px 30px rgba(255,255,255,0.4);
+}
 
 .container {max-width:1200px;margin:auto;text-align:center;}
-.section-title {font-size:36px;font-weight:800;margin-bottom:20px;}
-.section-subtitle {font-size:18px;color:#64748b;margin-bottom:40px;max-width:700px;margin-left:auto;margin-right:auto;}
+.section-title {
+font-size:36px;font-weight:800;margin-bottom:20px;
+transition:.3s;
+}
+.section-title:hover {color:#25D366; transform:translateY(-3px);}
+
+.section-subtitle {
+font-size:18px;color:#64748b;margin-bottom:40px;
+max-width:700px;margin-left:auto;margin-right:auto;
+}
 
 .grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-top:40px;}
+
 .card {
 background:#fff;padding:30px;border-radius:16px;
 box-shadow:0 10px 30px rgba(0,0,0,0.05);
 text-align:left;
+transition:all .3s ease;
 }
-.card h3 {margin-bottom:10px;}
+
+.card:hover {
+transform:translateY(-8px);
+box-shadow:0 20px 50px rgba(0,0,0,0.1);
+}
+
+.card h3 {margin-bottom:10px;transition:.3s;}
+.card:hover h3 {color:#25D366;}
 
 .dark {background:#0f172a;color:#fff;text-align:center;}
 
 video {
 width:100%;max-width:1000px;border-radius:20px;
 box-shadow:0 20px 50px rgba(0,0,0,.2);
+transition:.3s;
 }
+
+video:hover {transform:scale(1.02);}
 
 img.dashboard {
 width:100%;border-radius:20px;
 box-shadow:0 20px 50px rgba(0,0,0,.1);
 margin-top:40px;
+transition:.3s;
+}
+
+img.dashboard:hover {
+transform:scale(1.03);
+box-shadow:0 25px 60px rgba(0,0,0,.15);
 }
 
 .footer {
@@ -60,9 +105,22 @@ background:#0f172a;color:#fff;text-align:center;padding:40px 10%;
 .whatsapp-float {
 position:fixed;bottom:25px;right:25px;
 background:#25D366;color:#fff;
-padding:15px 22px;border-radius:50px;
+padding:16px 24px;border-radius:50px;
 font-weight:600;text-decoration:none;
 box-shadow:0 10px 25px rgba(0,0,0,.2);
+animation:pulse 2s infinite;
+transition:.3s;
+}
+
+.whatsapp-float:hover {
+transform:scale(1.1);
+box-shadow:0 15px 40px rgba(37,211,102,.6);
+}
+
+@keyframes pulse {
+0% {box-shadow:0 0 0 0 rgba(37,211,102,0.6);}
+70% {box-shadow:0 0 0 20px rgba(37,211,102,0);}
+100% {box-shadow:0 0 0 0 rgba(37,211,102,0);}
 }
 
 @media (max-width:768px){
@@ -73,7 +131,6 @@ box-shadow:0 10px 25px rgba(0,0,0,.2);
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
 <h1>Transforme sua imobiliária em uma máquina de gestão inteligente.</h1>
 <p>O ERP financeiro que integra contratos, imóveis, fluxo de caixa e dashboards estratégicos em um único sistema.</p>
@@ -84,7 +141,6 @@ box-shadow:0 10px 25px rgba(0,0,0,.2);
 <p style="margin-top:20px;font-size:14px;opacity:.7;">Atendimento rápido e personalizado.</p>
 </section>
 
-<!-- VIDEO -->
 <section>
 <div class="container">
 <h2 class="section-title">Veja o ImobFlow em ação</h2>
@@ -101,7 +157,6 @@ Decisões estratégicas começam com dados organizados.
 </div>
 </section>
 
-<!-- DASHBOARD -->
 <section>
 <div class="container">
 <h2 class="section-title">Dashboard financeiro e operacional completo em tempo real.</h2>
@@ -117,13 +172,11 @@ Quem controla os números, controla o crescimento.
 </div>
 </section>
 
-<!-- FEATURES -->
 <section>
 <div class="container">
 <h2 class="section-title">Controle absoluto do seu financeiro.</h2>
 
 <div class="grid">
-
 <div class="card">
 <h3>Fluxo de Caixa Inteligente</h3>
 <p>Visualize entradas e saídas com clareza total e previsibilidade financeira.</p>
@@ -143,7 +196,6 @@ Quem controla os números, controla o crescimento.
 <h3>Sistema 100% Integrado</h3>
 <p>Imóveis, contratos, proprietários e financeiro conectados em um único ambiente.</p>
 </div>
-
 </div>
 
 <p style="margin-top:40px;font-size:18px;font-weight:600;">
@@ -152,7 +204,6 @@ Sem planilhas. Sem retrabalho. Sem desorganização.
 </div>
 </section>
 
-<!-- FINAL CTA -->
 <section class="dark">
 <h2 class="section-title">Sua imobiliária pronta para escalar?</h2>
 <p class="section-subtitle">
